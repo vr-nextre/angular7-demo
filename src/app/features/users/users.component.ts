@@ -1,12 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 // import {HttpClient} from '@angular/common/http';
 import {UserService} from '../../services/user.service';
+import {UserStore} from '../../services/user.store';
 
 @Component({
   selector: 'vr-users',
   template: `
     <!-- <li *ngFor="let user of users" [routerLink]="['/users', user.id]"> -->
-    <li *ngFor="let user of userService.users" [routerLink]="['/users', user.id]">
+    <li *ngFor="let user of store.users" [routerLink]="['/users', user.id]">
       {{user.name}}
       <button (click)="handlerDelete(user, $event)">CANCELLA</button>
     </li>
@@ -25,8 +26,10 @@ export class UsersComponent implements OnInit {
   }
   */
 
-  constructor(public userService: UserService) {
-    userService.getUsers();
+  constructor(
+    public actions: UserService,
+    public store: UserStore) {
+    actions.getUsers();
   }
 
   ngOnInit() {
@@ -34,6 +37,6 @@ export class UsersComponent implements OnInit {
 
   handlerDelete(user: any, event: MouseEvent) {
     event.stopPropagation();
-    this.userService.deleteUser(user.id);
+    this.actions.deleteUser(user.id);
   }
 }

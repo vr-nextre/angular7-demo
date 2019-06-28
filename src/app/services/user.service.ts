@@ -1,5 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import {UserStore} from './user.store';
 
 // quando un servizio richiede una dipendenza e la va a
 // iniettare in un altro devo decorarlo con @Injectable()
@@ -11,15 +12,17 @@ import {Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class UserService {
-  users;
 
-  constructor(private http: HttpClient) {
+
+  constructor(
+    private http: HttpClient,
+    private store: UserStore) {
   }
 
   getUsers() {
     console.log('user.service->getUsers()');
     this.http.get<any[]>('https://jsonplaceholder.typicode.com/users')
-      .subscribe(res => this.users = res);
+      .subscribe(res => this.store.init(res) );
   }
 
   deleteUser(id: number) {
@@ -27,8 +30,7 @@ export class UserService {
     this.http.delete<any[]>('https://jsonplaceholder.typicode.com/users/' + id)
       .subscribe(res => {
         console.log(res);
-        const index = this.users.findIndex(item => item.id === id);
-        this.users.splice(index, 1);
+        this.store.delete(id);
       });
   }
 }
