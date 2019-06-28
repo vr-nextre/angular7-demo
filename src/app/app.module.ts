@@ -11,6 +11,7 @@ import { HomeComponent } from './features/home/home.component';
 import { CatalogComponent } from './features/catalog/catalog.component';
 import { FormsModule } from '@angular/forms';
 import {ConfigService} from './services/config.service';
+import {UserService} from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {ConfigService} from './services/config.service';
   // di angular, che condivide l'istanza tra i componenti e quindi si può passare
   // dati da un component a un altro
   providers: [
-    ConfigService
+    ConfigService,
+    // UserService // rimosso perchè uso @Injectable configurato con providedIn: 'root'
   ],
   bootstrap: [AppComponent]
 })
