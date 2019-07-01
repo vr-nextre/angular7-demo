@@ -13,6 +13,9 @@ import { FormsModule } from '@angular/forms';
 import {ConfigService} from './services/config.service';
 // import {UserService} from './services/user.service';
 import {Catalog2Module} from './features/catalog2/catalog2.module';
+import { LoginModule } from './features/login/login.module';
+import { ContactsModule } from './features/contacts/contacts.module';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -26,11 +29,14 @@ import {Catalog2Module} from './features/catalog2/catalog2.module';
   // importiamo i moduli, insiemi di componenti a se stanti e riutilizzabili
   // con il lazy load l'app resta leggera e carica il modulo solo quando serve
   imports: [
-    BrowserModule,
+    BrowserModule, // include tutte le le direttive del framework, le funzionalità di bootstrap dell'app
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    Catalog2Module
+    Catalog2Module,
+    LoginModule,
+    ContactsModule,
+    SharedModule
   ],
   // provider = service = classe da usare senza instanziarla, ci pensa l'injector
   // di angular, che condivide l'istanza tra i componenti e quindi si può passare

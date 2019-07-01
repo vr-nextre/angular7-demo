@@ -3,9 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'vr-catalog2',
   template: `
-    <p>
-      catalog2 works!
-    </p>
+    <div class="catalog2 ">
+      <vr-catalog2-form></vr-catalog2-form>
+      <vr-catalog2-list></vr-catalog2-list>
+    </div>
   `,
   styles: []
 })
