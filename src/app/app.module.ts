@@ -6,17 +6,18 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './features/users/users.component';
 import { UserDetailsComponent } from './features/user-details/user-details.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NavbarComponent } from './core/components/navbar/navbar.component';
+// import { NavbarComponent } from './core/components/navbar/navbar.component'; // in un modulo a parte
 import { HomeComponent } from './features/home/home.component';
 import { CatalogComponent } from './features/catalog/catalog.component';
 import { FormsModule } from '@angular/forms';
 import {ConfigService} from './services/config.service';
 // import {UserService} from './services/user.service';
-import {Catalog2Module} from './features/catalog2/catalog2.module';
-import { LoginModule } from './features/login/login.module';
+// import {Catalog2Module} from './features/catalog2/catalog2.module'; // lazy load
+// import { LoginModule } from './features/login/login.module'; // lazy load
 import { ContactsModule } from './features/contacts/contacts.module';
 import {SharedModule} from './shared/shared.module';
 import {CoreModule} from './core/core.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import {CoreModule} from './core/core.module';
     UsersComponent,
     UserDetailsComponent,
     HomeComponent,
-    CatalogComponent
+    CatalogComponent,
 
   ],
   // importiamo i moduli, insiemi di componenti a se stanti e riutilizzabili
@@ -35,11 +36,12 @@ import {CoreModule} from './core/core.module';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    Catalog2Module,
-    LoginModule,
+    // Catalog2Module, // rimuovere i componenti caricati lazy
+    // LoginModule, // rimuovere i componenti caricati lazy
     ContactsModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    BrowserAnimationsModule
   ],
   // provider = service = classe da usare senza instanziarla, ci pensa l'injector
   // di angular, che condivide l'istanza tra i componenti e quindi si può passare

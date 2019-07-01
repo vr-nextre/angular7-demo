@@ -21,6 +21,9 @@ import {reduce} from 'rxjs/operators';
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="catalog">Catalog</a>
       </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="login">ACCEDI</a>
+      </li>
     </ul>
   `,
   styles: [`

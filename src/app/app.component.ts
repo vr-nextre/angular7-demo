@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {filter} from 'rxjs/operators';
 import {ConfigService} from './services/config.service';
+import {environment} from '../environments/environment';
 
 @Component({
   selector: 'vr-root',
@@ -27,6 +28,9 @@ export class AppComponent {
   // quindi fare una referenza locale ed assegnarla per poterla utilizzare anche fuori
   // oppure usare il modificatore TS private/public
   constructor(router: Router, public configService: ConfigService) {
+
+    // cartella envirorments e scegliere il profilo di interesse
+    console.log(environment.url);
 
     this.theme = configService.theme;
 
