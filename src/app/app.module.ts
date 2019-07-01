@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './features/users/users.component';
 import { UserDetailsComponent } from './features/user-details/user-details.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NavbarComponent } from './core/navbar/navbar.component';
+import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { HomeComponent } from './features/home/home.component';
 import { CatalogComponent } from './features/catalog/catalog.component';
 import { FormsModule } from '@angular/forms';
@@ -16,15 +16,17 @@ import {Catalog2Module} from './features/catalog2/catalog2.module';
 import { LoginModule } from './features/login/login.module';
 import { ContactsModule } from './features/contacts/contacts.module';
 import {SharedModule} from './shared/shared.module';
+import {CoreModule} from './core/core.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     UserDetailsComponent,
-    NavbarComponent,
     HomeComponent,
     CatalogComponent
+
   ],
   // importiamo i moduli, insiemi di componenti a se stanti e riutilizzabili
   // con il lazy load l'app resta leggera e carica il modulo solo quando serve
@@ -36,7 +38,8 @@ import {SharedModule} from './shared/shared.module';
     Catalog2Module,
     LoginModule,
     ContactsModule,
-    SharedModule
+    SharedModule,
+    CoreModule
   ],
   // provider = service = classe da usare senza instanziarla, ci pensa l'injector
   // di angular, che condivide l'istanza tra i componenti e quindi si può passare
